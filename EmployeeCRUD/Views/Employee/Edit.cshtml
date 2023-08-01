@@ -1,0 +1,68 @@
+﻿@model Employee
+@using EmployeeCRUD.Models.Enum;
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Edit Employee</h2>
+    </div>
+
+    <form method="post" asp-action="Edit">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="FirstName">First Name</label>
+                <input type="text" class="form-control mb-3" asp-for="FirstName" placeholder="Enter First Name">
+                <span asp-validation-for="FirstName" class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="LastName">last Name</label>
+                <input type="text" class="form-control mb-3" asp-for="LastName" placeholder="Enter last Name">
+                <span asp-validation-for="LastName" class=" alert-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+           <div class="form-group col-md-6">
+                <label asp-for="Gender" class="form-label">Gender</label>
+                <div class="input-group">
+                    @Html.DropDownListFor(m => m.Gender, Enum.GetValues(typeof(GenderEnum)).Cast<GenderEnum>().Select(e => new SelectListItem { Text = e.ToString(), Value = e.ToString() }), new { @class = "form-select" })
+                    <span asp-validation-for="Gender" class="alert-danger"></span>
+                </div>
+           </div>
+           <div class="form-group col-md-6 mb-3">
+                <label asp-for="BirthDay">BirthDay</label>
+                <input type="datetime-local" class="form-control" asp-for="BirthDay">
+                <span asp-validation-for="BirthDay" class=" alert-danger"></span>
+           </div>
+        </div>
+        <div class="form-row">
+           <div class="form-group col-md-12">
+                <label asp-for="Address">Address</label>
+                <input type="text" class="form-control mb-3" asp-for="Address" placeholder="Enter Address">
+                <span asp-validation-for="Address" class=" alert-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+           <div class="form-group col-md-12">
+                <label asp-for="Description">Description</label>
+                <input type="text" class="form-control mb-3" asp-for="Description" placeholder="Enter Description">
+                <span asp-validation-for="Description" class=" alert-danger"></span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Update</button>
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List</a>
+    </form>
+
+</div>
+
+
+@*//for front end validations*@
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
