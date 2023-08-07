@@ -1,0 +1,72 @@
+﻿@model Department
+<html>
+<head>
+
+    <style>
+
+ 
+
+        div {
+            border-radius: 5px;
+            background-color: ghostwhite;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container shadow p-5">
+        <h1>DELETE DEPARTMENT</h1>
+        <form method="post" asp-action="Remove">
+            <input asp-for="Id" hidden />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Departmentname","Department Name :")
+                    @Html.TextBoxFor(model => model.DepartmentName)
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div>
+                    @Html.Label("Status","Select Status :")<br>
+                    <b>Enable</b>
+                    @Html.RadioButtonFor(model=>model.Status,"Enable")
+                    <b>Unable</b>
+                    @Html.RadioButtonFor(model=>model.Status,"Unable")
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Address","Address:")
+                    @Html.TextBoxFor(model => model.Address)
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Phone","Phone :")
+                    @Html.TextBoxFor(model => model.Phone)
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    @Html.Label("Description","Description :")
+                    @Html.TextBoxFor(model => model.Description)
+                </div>
+            </div>
+
+            <div>
+
+                <input class="btn btn-outline-danger btn-lg" type="submit" value="Delete">
+                <a asp-controller="Department" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List Department</a>
+            </div>
+            
+        </form>
+        </div>
+</body>
+</html>
