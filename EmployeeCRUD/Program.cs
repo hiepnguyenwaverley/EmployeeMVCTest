@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 
 // add
 builder.Services.AddSingleton<IEmployeeService, EmployeeService>();
+builder.Services.AddSingleton<IDepartmentService, DepartmentService>();
 
 var app = builder.Build();
 
