@@ -10,11 +10,18 @@
 }
 
 <div class="container shadow p-5">
-
+    <style>
+        .table td {
+            text-align: center;
+        }
+        .table th {
+        text-align: center;
+        }
+    </style>
     
     <h1 class="text-center mb-3">LIST USER </h1>
     <div class="col mb-3">
-        <a asp-controller="Employee" asp-action="Create" class="btn btn-lg btn-primary"><i class="bi bi-file-plus-fill"></i>Add Employee</a>
+        <a asp-controller="User" asp-action="Create" class="btn btn-lg btn-success"><i class="bi bi-person-plus"></i> Add User</a>
     </div>
     <table class="table table-bordered table-hover">
         <thead>
@@ -38,17 +45,17 @@
                     <td width="20%">
                         @item.NameUser
                     </td>
-                    <td width="20%">
+                    <td width="10%">
                         @item.Password
                     </td>
                     <td width="20%">
                         @item.Email
                     </td>
+                    
                     <td>
-                    <td>
-                        <div role="group" class="w-60 btn-group">
-                            <a asp-controller="User" asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i>Edit</a>&nbsp;
-                            <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger"><i class="bi bi-trash-fill"></i>Delete</a>
+                        <div >
+                            <a asp-controller="User" asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-lg btn-primary"><i class="bi bi-pencil-square"></i> Edit</a>&nbsp;
+                            <a asp-controller="User" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-lg btn-danger"><i class="bi bi-trash-fill"></i> Delete</a>
                         </div>
                     </td>
                 </tr>

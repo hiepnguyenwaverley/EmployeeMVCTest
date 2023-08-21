@@ -11,7 +11,7 @@ namespace EmployeeCRUD.Services.Implement
                 UserName = "Duongqua",
                 NameUser ="Duong Qua",
                 Email="quanhi@123.com",
-                Password="123",
+                Password="123"
             },
 
                  new User
@@ -20,10 +20,9 @@ namespace EmployeeCRUD.Services.Implement
                 UserName = "CoLong",
                 NameUser ="Tieu Long Nu",
                 Email="coco@123.com",
-                Password="123",
+                Password="123"
             }
-
-
+           
         };
 
         public bool AddUser(User newuser)
@@ -36,10 +35,36 @@ namespace EmployeeCRUD.Services.Implement
             UserList.Add(newuser);
             return true;
         }
-
-        public bool DeleteUser(int id)
+        public bool UpdateUser(Guid id, User updateUser)
         {
-            throw new NotImplementedException();
+            if(id==Guid.Empty||updateUser==null)
+            {
+                return false;
+            }
+            var user = UserList.FirstOrDefault(x => x.Id == id);
+            if(user != null)
+            {
+                user.UserName = updateUser.UserName;
+                user.NameUser = updateUser.NameUser;
+                user.Password = updateUser.Password;
+                user.Email = updateUser.Email; 
+                return true;
+            }
+            return false;
+
+        }
+
+        public bool DeleteUser(Guid id)
+        {
+            {
+                var user = UserList.FirstOrDefault(item => item.Id == id);
+                if (user != null)
+                {
+                    UserList.Remove(user);
+                    return true;
+                }
+                return false;
+            }
         }
 
         public List<User> GetAll()
@@ -49,10 +74,6 @@ namespace EmployeeCRUD.Services.Implement
         public User? GetById(Guid id)
         {
             return UserList.FirstOrDefault(item => item.Id == id);
-        }
-        public User GetById(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public bool LoginUser(User loginuser)
@@ -65,7 +86,9 @@ namespace EmployeeCRUD.Services.Implement
             throw new NotImplementedException();
         }
 
-        public bool UpdateUser(User user)
+ 
+
+        public User GetById(int id)
         {
             throw new NotImplementedException();
         }

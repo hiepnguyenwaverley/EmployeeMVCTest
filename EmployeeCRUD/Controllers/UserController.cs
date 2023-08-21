@@ -29,6 +29,7 @@ namespace EmployeeCRUD.Controllers
                 return View(user);
             }
             _userService.AddUser(user);
+            TempData["ResultOk"] = "Add User Successfully !";
             return RedirectToAction("Index");
         }
 
@@ -44,6 +45,7 @@ namespace EmployeeCRUD.Controllers
                 return View(user);
             }
             _userService.AddUser(user);
+            TempData["ResultOk"] = "Login Successfully !";
             return RedirectToAction("Login");
         }
         public IActionResult Register() 
@@ -60,6 +62,54 @@ namespace EmployeeCRUD.Controllers
             _userService.AddUser(user);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public IActionResult Edit(Guid? id)
+        {
+            if (id == null||id==Guid.Empty)
+            {
+                return NotFound();
+            }
+            var user = _userService.GetById(id.Value);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
+        [HttpPost]
+        public IActionResult Edit(User user)
+        {
+            bool result = _userService.UpdateUser(user.Id, user);
 
+            TempData["ResultOk"] = "Update Successfully !";
+            return RedirectToAction("Index");
+        }
+        
+        public IActionResult Delete(Guid? id)
+        {
+            if (id == null || id == Guid.Empty)
+            {
+                return NotFound();
+            }
+            var user = _userService.GetById(id.Value);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
+        [HttpPost]
+        public IActionResult Remove(Guid? id)
+        {
+            var user = _userService.GetById(id.Value);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            _userService.DeleteUser(id.Value);
+            TempData["ResultOk"] = "Delete Successfully !";
+            return RedirectToAction("Index");
+        }
     }
 }

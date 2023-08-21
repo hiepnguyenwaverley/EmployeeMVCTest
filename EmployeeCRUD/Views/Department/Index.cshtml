@@ -9,12 +9,20 @@
         background-color: ghostwhite;
         padding: 5px;
     }
+
+    .table td {
+        text-align: center;
+    }
+
+    .table th {
+        text-align: center;
+    }
 </style>
 <div class="container shadow p-5">
 
     <h1 class="text-center mb-3">LIST DEPARTMENT </h1>
     <div>
-        <a asp-controller="Department" asp-action="Create" class="btn btn-success"><i class="bi bi-file-plus-fill"></i>Add Department</a>
+        <a asp-controller="Department" asp-action="Create" class="btn btn-success"><i class="bi bi-cloud-plus-fill"></i> Add Department</a>
     </div>
     <br />
     <table class="table table-bordered table-hover">
@@ -36,7 +44,7 @@
                     <td width="20%">
                         @item.DepartmentName
                     </td>
-                    <td width="20%">
+                    <td width="10%">
                         @item.Status
                     </td>
                     <td width="20%">
@@ -52,7 +60,7 @@
                         <div role="group" class="w-60 btn-group">
                             
                             <a asp-controller="Department" asp-action="Edit" asp-route-id="@item.Id" class=" btn btn-sm btn-primary"><i class="bi bi-pencil-square"></i>Edit</a>&nbsp;
-                            <a asp-controller="Department" asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-sm btn-danger"><i class="bi bi-pencil-square"></i>Delete</a>&nbsp;
+                            <a asp-controller="Department" asp-action="Delete" asp-route-id="@item.Id" class=" btn btn-sm btn-danger"><i class=" bi bi-trash-fill"></i>Delete</a>&nbsp;
                         </div>
                     </td>
                 </tr>

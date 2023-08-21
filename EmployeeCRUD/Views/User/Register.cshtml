@@ -27,14 +27,14 @@
     </style>
 </head>
 <body>
-    <div class="container shadow p-5">
+    <div class="container">
         <h1 class="display-4">SIGN USER</h1>
         <form method="post" asp-action="Login">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="UserName">User Name</label>
-                    <input type="text" class="form-control mb-3" asp-for="UserName" placeholder="Enter Ypur UserName">
+                    <input type="text" class="form-control mb-3" asp-for="UserName" placeholder="Enter Your User Name">
                     <span asp-validation-for="UserName" class=" alert-danger"></span>
                 </div>
             </div>
@@ -52,7 +52,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Password">Password</label>
-                    <input type="text" class="form-control mb-3" asp-for="Password" placeholder="Enter Your Password">
+                    <input type="password" class="form-control mb-3" asp-for="Password" placeholder="Enter Your Password">
                     <span asp-validation-for="Password" class=" alert-danger"></span>
                 </div>
             </div>
@@ -60,7 +60,7 @@
             <div class="form-row">
                     <div class="form-group col-md-6">
                         <label asp-for="Password">Confirm Password</label>
-                        <input type="text" class="form-control mb-3" asp-for="Password" placeholder="Enter Your Password">
+                        <input type="password" class="form-control mb-3" asp-for="Password" placeholder="Enter Your Password">
                         <span asp-validation-for="Password" class=" alert-danger"></span>
                     </div>
             </div>
@@ -68,14 +68,15 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label asp-for="Email">Email</label>
-                    <input type="text" class="form-control mb-3" asp-for="Email" placeholder="Enter Your Password">
+                    <input type="text" class="form-control mb-3" asp-for="Email" placeholder="Enter Your Email">
                     <span asp-validation-for="Email" class=" alert-danger"></span>
                 </div>
             </div>
             <div>
                 <input class="btn btn-primary" type="submit" value="SIGN UP"><br />
-                <input type="checkbox" checked="checked" name="remember"> Remember me<br />
-                <a href="#">Forgot Password?</a>
+                <button type="button" class="btn btn-primary"><span class="bi bi-facebook"></span> Sign with Facebook</button>
+                <button type="button" class="btn btn-success"><span class="bi bi-google"></span> Sign with Google</button>
+                <button type="button" class="btn btn-warning"><span class="bi bi-instagram"></span> Sign with Instagram</button>
             </div>
 
         </form>
