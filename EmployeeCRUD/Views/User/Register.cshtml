@@ -1,0 +1,85 @@
+﻿@model User
+<html>
+<head>
+
+    <style>
+
+        input[type=submit] {
+            width: 50%;
+            background-color: steelblue;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: dodgerblue;
+            }
+
+        div {
+            border-radius: 5px;
+            background-color: ghostwhite;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">SIGN USER</h1>
+        <form method="post" asp-action="Login">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="UserName">User Name</label>
+                    <input type="text" class="form-control mb-3" asp-for="UserName" placeholder="Enter Your User Name">
+                    <span asp-validation-for="UserName" class=" alert-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="NameUser">Name User</label>
+                    <input type="text" class="form-control mb-3" asp-for="NameUser" placeholder="Enter Your Name User">
+                    <span asp-validation-for="NameUser" class=" alert-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Password">Password</label>
+                    <input type="password" class="form-control mb-3" asp-for="Password" placeholder="Enter Your Password">
+                    <span asp-validation-for="Password" class=" alert-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Password">Confirm Password</label>
+                        <input type="password" class="form-control mb-3" asp-for="Password" placeholder="Enter Your Password">
+                        <span asp-validation-for="Password" class=" alert-danger"></span>
+                    </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Email">Email</label>
+                    <input type="text" class="form-control mb-3" asp-for="Email" placeholder="Enter Your Email">
+                    <span asp-validation-for="Email" class=" alert-danger"></span>
+                </div>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="SIGN UP"><br />
+                <button type="button" class="btn btn-primary"><span class="bi bi-facebook"></span> Sign with Facebook</button>
+                <button type="button" class="btn btn-success"><span class="bi bi-google"></span> Sign with Google</button>
+                <button type="button" class="btn btn-warning"><span class="bi bi-instagram"></span> Sign with Instagram</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

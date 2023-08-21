@@ -52,7 +52,7 @@ namespace EmployeeCRUD.Controllers
         {
 
             bool ketqua = _departmentService.UpdateDepartment(depart.Id, depart);
-       
+        
 
             return RedirectToAction("Index");
 
